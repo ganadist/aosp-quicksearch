@@ -9,10 +9,20 @@ android-gradle = "8.10.1"
 # https://kotlinlang.org/docs/releases.html#release-details
 kotlin = "2.1.21"
 
+kotlinx-coroutines = "1.9.0"
+
+guava = "32.1.2-android"
+
+androidx-core = "1.0.0"
+
 [plugins]
 android-lib = { id = "com.android.library", version.ref = "android-gradle" }
 android-app = { id = "com.android.application", version.ref = "android-gradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 [libraries]
+androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 

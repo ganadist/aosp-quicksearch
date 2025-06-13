@@ -5,9 +5,29 @@
  * Learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.13/samples
  * This project uses @Incubating APIs which are subject to change.
  */
+import org.gradle.api.tasks.compile.JavaCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     alias(libs.plugins.android.app).apply(false)
     alias(libs.plugins.android.lib).apply(false)
     alias(libs.plugins.kotlin.android).apply(false)
+}
+
+val JVM_TARGET = "11"
+subprojects {
+    tasks
+        .withType<JavaCompile>()
+        .configureEach {
+            sourceCompatibility = JVM_TARGET
+            targetCompatibility = JVM_TARGET
+        }
+
+    tasks
+        .withType<KotlinJvmCompile>()
+        .configureEach {
+            compilerOptions
+                .jvmTarget.set(JvmTarget.fromTarget(JVM_TARGET))
+        }
 }

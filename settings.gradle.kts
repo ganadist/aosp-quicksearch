@@ -34,3 +34,5 @@ android {
 }
 
 rootProject.name = "aosp-quicksearch"
+include(":app")
+include(":common")
